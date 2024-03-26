@@ -1,0 +1,13 @@
+#!/bin/bash
+
+CURRENT_DIRECTORY=$(dirname "$BASH_SOURCE")
+source "${CURRENT_DIRECTORY}/output.sh"
+linefeed
+
+DB_PACKAGE_ROOT="${CURRENT_DIRECTORY}/../"
+LOCAL_PROJECT_ROOT="${DB_PACKAGE_ROOT}../../../"
+LOCAL_FILEADMIN="${LOCAL_PROJECT_ROOT}public/fileadmin/"
+
+echo 'Copying the media files to the production system …'
+rsync -avz -e ssh --delete "${LOCAL_FILEADMIN}" "????@????:/var/???/shared/public/fileadmin/"
+success 'Done.'

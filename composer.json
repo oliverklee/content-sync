@@ -14,9 +14,16 @@
 	"require": {
 		"php": "^8.2.0",
 		"helhum/typo3-console": "^8.1.1",
+		"oliverklee/legacy-database": "@dev",
 		"typo3/cms-composer-installers": "^4.0.0-rc1",
 		"typo3/cms-core": "^11.5"
 	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "src/extensions/*"
+		}
+	],
 	"prefer-stable": true,
 	"config": {
 		"allow-plugins": {

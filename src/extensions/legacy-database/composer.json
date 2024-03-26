@@ -1,0 +1,29 @@
+{
+	"name": "oliverklee/legacy-database",
+	"description": "Legacy database fields and migration scripts",
+	"license": "GPL-2.0-or-later",
+	"type": "typo3-cms-extension",
+	"authors": [
+		{
+			"name": "Oliver Klee",
+			"homepage": "https://www.oliverklee.de",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": "^8.2",
+		"typo3/cms-core": "^11.5"
+	},
+	"prefer-stable": true,
+	"bin": [
+		"bin/push-media"
+	],
+	"config": {
+		"sort-packages": true
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "legacy_database"
+		}
+	}
+}
