@@ -1,0 +1,5 @@
+hosts:
+  beta:
+    hostname: '???'
+    remote_user: '???'
+    deploy_path: '???'

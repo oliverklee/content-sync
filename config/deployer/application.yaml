@@ -1,0 +1,3 @@
+config:
+  application: 'content sync demo'
+  bin/php: '/opt/alt/php82/usr/bin/php'

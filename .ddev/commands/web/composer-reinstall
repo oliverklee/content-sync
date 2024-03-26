@@ -1,0 +1,22 @@
+#!/bin/bash
+
+## Description: Cleanly reinstall all Composer packages and empty the caches
+## Usage: composer-reinstall
+## Example: "ddev composer-reinstall"
+
+echo 'Removing installed packages and extensions …'
+rm -rf public/_assets/ public/typo3/ public/typo3temp/ public/index.php vendor/
+
+echo 'Clearing TYPO3 and PHPStan file caches …'
+rm -rf var/cache/ var/tmp/ /tmp/phpstan/
+
+echo 'Reinstalling Composer packages …'
+composer install
+
+echo 'Fixing the folder structure …'
+vendor/bin/typo3 install:fixfolderstructure
+
+echo 'Flushing TYPO3 caches …'
+vendor/bin/typo3 cache:flush
+
+echo 'Done.'

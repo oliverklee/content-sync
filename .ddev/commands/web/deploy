@@ -1,0 +1,19 @@
+#!/bin/bash
+
+## Description: Deploys the web app to the server
+## Usage: deploy
+## Example: "ddev deploy"
+
+cd /var/www/html
+
+echo "Installing production Composer packages …"
+composer install --no-dev --optimize-autoloader -q
+echo "Done."
+echo
+
+php tools/deployer.phar deploy
+
+echo
+echo "Installing Composer packages for local development …"
+composer install -q
+echo "Done."

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+## Description: Copies the logs from the production system to the local system.
+## Usage: pull-logs
+## Example: "ddev pull-logs"
+
+echo "Creating the local logs directory …"
+mkdir -p var/log/production
+
+echo "Copying logs from the production system …"
+php tools/deployer.phar typo3:logs:pull
+
+echo "Done."
+echo

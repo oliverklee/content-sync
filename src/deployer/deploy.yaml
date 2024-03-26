@@ -1,0 +1,19 @@
+tasks:
+  deploy:
+    - deploy:prepare
+    - deploy:upgrade
+    - deploy:publish
+
+  deploy:upgrade:
+    - typo3:create_default_folders
+    - typo3:flush:caches
+    - typo3:update:databaseschema
+    - typo3:flush:caches
+    - typo3:setup:extensions
+    - typo3:upgrade:run
+    - typo3:flush:caches
+    - typo3:warmup:caches
+
+after:
+  deploy:failed:
+    - deploy:unlock

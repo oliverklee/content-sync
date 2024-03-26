@@ -1,0 +1,12 @@
+#!/bin/bash
+
+## Description: Creates a local admin BE user and deletes all other users
+## Usage: create-admin
+## Example: "create-admin"
+
+vendor/bin/typo3cms database:updateschema
+
+echo
+echo "Creating admin BE user and deleting all other BE users …"
+vendor/bin/typo3 database:import < .ddev/sql/create-admin.sql
+echo "Done."

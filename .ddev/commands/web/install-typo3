@@ -1,0 +1,24 @@
+#!/bin/bash
+
+## Description: Set up the initial TYPO3 installation
+## Usage: install-typo3
+## Example: "ddev install-typo3"
+
+cd /var/www/html
+
+echo 'Creating the .env file …'
+cp -n .env.dist .env
+
+echo 'Reinstalling Composer packages …'
+composer install
+
+echo 'Setting up the extensions …'
+vendor/bin/typo3 install:extensionsetupifpossible
+
+echo 'Updating the database schema …'
+vendor/bin/typo3 database:updateschema
+
+echo 'Flushing the TYPO3 caches …'
+vendor/bin/typo3 cache:flush
+
+echo 'Done.'

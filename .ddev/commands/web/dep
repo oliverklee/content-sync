@@ -1,0 +1,9 @@
+#!/bin/bash
+
+## Description: Runs deployer commands
+## Usage: dep <command>
+## Example: "ddev dep rollback"
+
+cd /var/www/html
+
+php tools/deployer.phar $@

@@ -1,0 +1,37 @@
+{
+	"name": "oliverklee/content-sync",
+	"description": "TYPO3 content synchronization example",
+	"license": "GPL-2.0-or-later",
+	"type": "project",
+	"authors": [
+		{
+			"name": "Oliver Klee",
+			"homepage": "https://www.oliverklee.de",
+			"role": "Developer"
+		}
+	],
+	"homepage": "https://www.oliverklee.de/",
+	"require": {
+		"php": "^8.2.0",
+		"helhum/typo3-console": "^8.1.1",
+		"typo3/cms-composer-installers": "^4.0.0-rc1",
+		"typo3/cms-core": "^11.5"
+	},
+	"prefer-stable": true,
+	"config": {
+		"allow-plugins": {
+			"helhum/typo3-console-plugin": true,
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		},
+		"preferred-install": {
+			"*": "dist"
+		},
+		"sort-packages": true
+	},
+	"extra": {
+		"typo3/cms": {
+			"web-dir": "public"
+		}
+	}
+}

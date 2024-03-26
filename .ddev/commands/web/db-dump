@@ -1,0 +1,24 @@
+#!/bin/bash
+
+## Description: Creates a local dump of the database (without any private data) and stores it in var/tmp/.
+## Usage: db-dump
+## Example: "ddev db-dump"
+
+mkdir -p var/tmp
+vendor/bin/typo3 database:updateschema
+vendor/bin/typo3 database:export \
+    --exclude be_sessions \
+    --exclude be_users \
+    --exclude cache_* \
+    --exclude fe_sessions \
+    --exclude fe_users \
+    --exclude sys_be_shortcuts \
+    --exclude sys_history \
+    --exclude sys_lockedrecords \
+    --exclude sys_log \
+    --exclude tx_extensionmanager_* \
+    --exclude tx_oelib_test* \
+    --exclude tx_scheduler_* \
+    --exclude tx_seminars_attendances \
+    --exclude tx_seminars_test* \
+    > var/tmp/deployer-db-dump.sql

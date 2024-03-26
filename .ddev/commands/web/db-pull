@@ -1,0 +1,23 @@
+#!/bin/bash
+
+## Description: Copies the DB and uploaded assets from the production system to the local system.
+## Usage: db-pull
+## Example: "ddev db-pull"
+
+echo "Copying the uploaded files from the production system …"
+php tools/deployer.phar typo3:fileadmin:clone
+
+echo "Dumping and copying the database from the production system …"
+mkdir -p var/tmp
+php tools/deployer.phar typo3:database:dump
+typo3 database:import < var/tmp/deployer-db-dump.sql
+rm var/tmp/deployer-db-dump.sql
+
+echo "Updating the DB schema …"
+typo3 database:updateschema
+
+echo "Updating the local reference index …"
+typo3 referenceindex:update
+
+echo "Done."
+echo

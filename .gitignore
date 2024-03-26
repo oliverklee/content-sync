@@ -1,0 +1,39 @@
+# IDE workspace files
+/.idea
+/nbproject
+
+# Ignore OS-specific files
+.DS_Store
+
+# Ignore DB dumps
+*--dump.sql
+*dump.sql
+/*.sql
+
+# caches
+/var/*
+!/var/labels
+!/var/spool/
+/var/spool/*
+!/var/spool/mail/
+/var/spool/mail/*
+!/var/spool/mail/.gitkeep
+/.php-cs-fixer.cache
+/.php_cs.cache
+
+# machine-specific settings
+/.env
+
+# packages
+/vendor/
+
+# exclude the document root, but allow TYPO3-specific files
+/public/*
+!/public/.htaccess
+!/public/favicon.*
+
+# exclude everything in typo3conf/ except typo3conf itself and the configuration files
+!/public/typo3conf
+/public/typo3conf/*
+!/public/typo3conf/AdditionalConfiguration.php
+!/public/typo3conf/LocalConfiguration.php
