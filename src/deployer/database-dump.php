@@ -20,13 +20,7 @@ task('typo3:database:dump', static function (): void {
         'sys_news',
         'sys_refindex',
         'tx_extensionmanager_*',
-        'tx_geosshop_domain_model_order_*',
-        'tx_oelib_test_*',
         'tx_scheduler_*',
-        'tx_seminars_attendances',
-        'tx_seminars_attendances_*',
-        'tx_seminars_test',
-        'tx_seminars_test_*',
     ];
     $dumpCommand = '{{bin/php}} {{deploy_path}}/current/vendor/bin/typo3 database:export -e ' .
         \implode(' -e ', $excludedTables) . ' > ' . $locationOnServer;
