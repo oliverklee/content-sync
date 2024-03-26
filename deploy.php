@@ -11,6 +11,7 @@ import(__DIR__ . '/config/deployer/application.yaml');
 import(__DIR__ . '/config/deployer/hosts.yaml');
 import(__DIR__ . '/src/deployer/ConsoleRunner.php');
 import(__DIR__ . '/src/deployer/database-dump.php');
+import(__DIR__ . '/src/deployer/database-push.php');
 import(__DIR__ . '/src/deployer/deploy.yaml');
 import(__DIR__ . '/src/deployer/logs-pull.php');
 import(__DIR__ . '/src/deployer/rsync.php');

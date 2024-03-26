@@ -1,0 +1,17 @@
+#!/bin/bash
+
+## Description: Exports the local media and DB to the live system.
+## Usage: db-push
+## Example: "ddev db-push"
+
+echo "Pushing the media assets to the production system …"
+vendor/bin/typo3 install:fixfolderstructure
+vendor/bin/push-media
+echo "Done."
+echo
+
+echo "Dumping and copying the database to the production system …"
+.ddev/commands/web/db-dump
+php tools/deployer.phar typo3:database:push
+rm var/tmp/deployer-db-dump.sql
+echo "Done."
